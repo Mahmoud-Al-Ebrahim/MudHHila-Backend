@@ -221,7 +221,7 @@ exports.getHallExpensesReport = async (req, res) => {
 
     const { hallId } = req.params;
     const { startDate, endDate } = req.body;
-end.setHours(23, 59, 59, 999);
+endDate.setHours(23, 59, 59, 999);
 
     if (!startDate || !endDate) {
       return res.status(400).json({
