@@ -16,7 +16,7 @@ exports.getHallReport = async (req, res) => {
 
     const start = new Date(startDate);
     const end = new Date(endDate);
-
+end.setHours(23, 59, 59, 999);
     const hallObjectId = new mongoose.Types.ObjectId(hallId);
 
     // =========================
