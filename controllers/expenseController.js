@@ -221,8 +221,10 @@ exports.getHallExpensesReport = async (req, res) => {
 
     const { hallId } = req.params;
     const { startDate, endDate } = req.body;
-endDate.setHours(23, 59, 59, 999);
 
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+end.setHours(23, 59, 59, 999);
     if (!startDate || !endDate) {
       return res.status(400).json({
         message: "تاريخ البداية والنهاية مطلوبان"
@@ -233,8 +235,8 @@ const objectHallId = new mongoose.Types.ObjectId(hallId);
     const filter = {
       hall: objectHallId,
       expenseDate: {
-        $gte: new Date(startDate),
-        $lte: new Date(endDate)
+        $gte: new Date(start),
+        $lte: new Date(end)
       }
     };
 
