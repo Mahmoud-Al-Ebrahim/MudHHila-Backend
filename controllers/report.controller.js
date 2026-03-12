@@ -158,8 +158,15 @@ exports.getPaymentsReport = async (req, res) => {
     const end = new Date(endDate);
     end.setHours(23, 59, 59, 999);
 
-    const result = await Payment.aggregate([
+        const filter = {
+      expenseDate: {
+        $gte: new Date(start),
+        $lte: new Date(end)
+      }
+    };
 
+    const result = await Payment.aggregate([
+{ $match: filter },
       /// جلب بيانات الحدث
       {
         $lookup: {
