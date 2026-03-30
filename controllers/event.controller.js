@@ -11,7 +11,8 @@ exports.addEvent = async (req, res) => {
       eventDate,
       clientName,
       totalCost,
-      advancePayment
+      advancePayment,
+      paymentMethod
     } = req.body;
 
     const event = await Event.create({
@@ -19,7 +20,8 @@ exports.addEvent = async (req, res) => {
       eventName,
       eventDate,
       clientName,
-      totalCost
+      totalCost,
+      paymentMethod
     });
 
     // إضافة دفعة مقدمة إذا موجودة
@@ -34,7 +36,7 @@ exports.addEvent = async (req, res) => {
       });
     }
 
-    // await Helper.updateEventStatus(event._id);
+    await Helper.updateEventStatus(event._id);
     res.json(event);
 
   } catch (error) {
