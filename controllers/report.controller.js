@@ -159,7 +159,7 @@ exports.getPaymentsReport = async (req, res) => {
     end.setHours(23, 59, 59, 999);
 
         const filter = {
-      expenseDate: {
+          paymentDate: {
         $gte: new Date(start),
         $lte: new Date(end)
       }

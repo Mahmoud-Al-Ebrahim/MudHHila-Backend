@@ -8,7 +8,6 @@ const EventSchema = new mongoose.Schema({
   },
 
   eventName: String,
-  paymentMethod: String,
   eventDate: { type: Date, required: true },
   clientName: String,
 

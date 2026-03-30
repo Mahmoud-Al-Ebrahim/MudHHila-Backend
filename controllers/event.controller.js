@@ -21,7 +21,6 @@ exports.addEvent = async (req, res) => {
       eventDate,
       clientName,
       totalCost,
-      paymentMethod
     });
 
     // إضافة دفعة مقدمة إذا موجودة
@@ -32,7 +31,8 @@ exports.addEvent = async (req, res) => {
         dueDate: new Date(),
         paymentDate: new Date(),
         status: "مكتمل",
-        notes: "دفعة مقدمة"
+        notes: "دفعة مقدمة",
+        paymentMethod: paymentMethod
       });
     }
 
