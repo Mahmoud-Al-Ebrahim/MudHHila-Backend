@@ -122,6 +122,7 @@ end.setHours(23, 59, 59, 999);
         name: hall.name,
         address: hall.address,
         phone: hall.phone,
+        email: hall.email,
         supervisorName: hall.supervisorName,
         auditorName : hall.auditorName
       },
